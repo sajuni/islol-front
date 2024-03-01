@@ -10,14 +10,13 @@ const instance = axios.create({
 instance.interceptors.request.use(
   (config) => {
     const authStore = useAuthStore();
-    const accessToken = authStore.getAccessToken();
+    const accessToken = authStore.accessToken;
 
     // if (!accessToken) {
     //   window.location.href = '/';
     //   return config;
     // }
 
-    config.headers['Content-Type'] = 'application/json';
     config.headers['Authorization'] = `Bearer ${accessToken}`;
 
     return config;
