@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
-import axios from 'axios';
+import http from '@/http';
 
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0);
@@ -10,13 +10,13 @@ export const useCounterStore = defineStore('counter', () => {
   }
 
   function test() {
-    axios
+    http
       .get('https://jsonplaceholder.typicode.com/posts')
-      .then((response) => {
-        console.log('Response:', response.data);
+      .then((res) => {
+        console.log('dd: ' + res);
       })
-      .catch((error) => {
-        console.error('Error:', error);
+      .catch((e) => {
+        console.log('err: ' + e);
       });
   }
   return { count, doubleCount, increment, test };

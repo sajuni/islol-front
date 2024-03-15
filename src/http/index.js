@@ -17,6 +17,7 @@ instance.interceptors.request.use(
     //   return config;
     // }
 
+    config.headers['Content-Type'] = 'application/json';
     config.headers['Authorization'] = `Bearer ${accessToken}`;
 
     return config;
@@ -34,7 +35,8 @@ http.get = (url, options) => {
     instance
       .get(url, options)
       .then((res) => {
-        if (res.code == 1) {
+        console.log(res);
+        if (res.code == 1 || res.status == 200) {
           resolve(res.data);
         } else {
           reject(res.msg);
@@ -51,7 +53,7 @@ http.post = (url, data, options) => {
     instance
       .post(url, data, options)
       .then((res) => {
-        if (res.code == 1) {
+        if (res.code == 1 || res.status == 200) {
           resolve(res.data);
         } else {
           reject(res.msg);
