@@ -35,7 +35,6 @@ http.get = (url, options) => {
     instance
       .get(url, options)
       .then((res) => {
-        console.log(res);
         if (res.code == 1 || res.status == 200) {
           resolve(res.data);
         } else {
