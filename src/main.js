@@ -4,6 +4,10 @@ import router from './router';
 import { loadFonts } from './plugins/webfontloader';
 import { createPinia } from 'pinia';
 
+// 전역 css
+import '@/assets/css/main.css';
+
+// vuetify 관련
 import '@mdi/font/css/materialdesignicons.css';
 import 'vuetify/styles';
 import { createVuetify } from 'vuetify';

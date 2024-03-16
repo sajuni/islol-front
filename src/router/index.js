@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import login from '@/router/auth/login';
+import auth from '@/router/auth/auth';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    ...login,
+    ...auth,
     {
       path: '/error/404',
       name: '404',
